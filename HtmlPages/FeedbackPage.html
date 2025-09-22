@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="http://localhost/NPG/StyleSheets/HomePageStyle.css"
+      type="text/css"
+      media="screen"
+    />
+    <script src="http://localhost/NPG/Scripts/FeedbackScript.js"></script>
+    <title>Network Packet Generator</title>
+  </head>
+
+  <body>
+    <!-- Header Section -->
+    <div>
+      <div class="row page-header-row">
+        <div class="col-sm-2">
+          <button title="Click here to navigate to Welcome Page.">
+            <a href="./WelcomePage.html">
+              <img
+                src="http://localhost/NPG/Images/PageLogoImage.png"
+                width="60px"
+                height="50px"
+                alt="Logo"
+              />
+            </a>
+          </button>
+        </div>
+        <div class="col-sm-8 text-center page-header">
+          <b>
+            <a title="NPG" class="hd" href="./HomePage.html"
+              >NETWORK PACKET GENERATOR</a
+            >
+          </b>
+        </div>
+        <div class="col-sm-2 text-right">
+          <button title="Click here to navigate to Website Information Page.">
+            <a href="./InfoPage.html">
+              <img
+                src="http://localhost/NPG/Images/PageInfoImage.png"
+                width="60px"
+                height="50px"
+                alt="Info"
+              />
+            </a>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Marquee Section -->
+    <!--<div>
+      <marquee class="header-scroll" direction="right" background="#FFFFCC">
+        One stop tool to generate network packets using ARP, IP, DNS.
+      </marquee>
+    </div>-->
+
+    <br />
+    <br />
+
+    <!-- Feedback Form Section -->
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <form
+            name="feedback-form"
+            onsubmit="return feedbackSubmitted()"
+            action="./submit_feedback.php"
+            method="POST"
+          >
+            <label for="feedback-person-id">User</label><br />
+            <input
+              type="text"
+              id="feedback-person-id"
+              name="user"
+              placeholder="Please enter your name/email"
+              size="40"
+              required
+            /><br /><br />
+            <div class="form-floating">
+              <label for="floatingTextarea">Comments</label>
+              <textarea
+                class="form-control"
+                placeholder="Leave a comment here"
+                id="floatingTextarea"
+                name="comments"
+                required
+              ></textarea>
+              <br />
+              <button type="submit" class="btn btn-primary feedback-submit-btn">
+                Submit
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact Section -->
+    <div class="contact">
+      <button class="contact-btn">
+        <a class="pg" href="./ContactInfoPage.html">
+          <img
+            src="http://localhost/NPG/Images/contactInfoImage.png"
+            width="20px"
+            height="20px"
+            alt="Contact"
+          />
+          Contact
+        </a>
+      </button>
+    </div>
+
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  </body>
+</html>

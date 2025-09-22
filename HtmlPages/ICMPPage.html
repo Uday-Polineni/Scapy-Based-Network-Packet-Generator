@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://localhost/NPG/StyleSheets/HomePageStyle.css" type="text/css" media="screen" />
+    <title>ICMP Packet Generator</title>
+</head>
+
+<body>
+    <!-- Header Section -->
+    <div class="row page-header-row">
+        <div class="col-sm-2">
+            <a title="Click here to navigate to Welcome Page." href="./WelcomePage.html">
+                <img src="http://localhost/NPG/Images/PageLogoImage.png" class="img-thumbnail" width="80px" height="60px">
+            </a>
+        </div>
+        <div class="col-sm-8 text-center page-header">
+            <b>
+                <a title="NPG" class="hd" href="./HomePage.html">NETWORK PACKET GENERATOR</a>
+            </b>
+        </div>
+        <div class="col-sm-2 text-right">
+            <a title="Click here to navigate to Website Information Page." href="./InfoPage.html">
+                <img src="http://localhost/NPG/Images/PageInfoImage.png" class="img-thumbnail" width="80px" height="60px">
+            </a>
+        </div>
+    </div>
+
+    <!-- ICMP Form Section -->
+    <div class="container mt-4">
+        <h2 class="text-center mb-4">ICMP Packet Generator</h2>
+        <form id="icmpForm" action="http://localhost/NPG/Server/ICMPPacketGenerator.py" method="post" onsubmit="return validateICMPForm()">
+            <div class="form-group">
+                <label for="destinationIP">Destination IP</label>
+                <input type="text" class="form-control" id="destinationIP" name="destinationIP" placeholder="Enter Destination IP" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Send ICMP Packet</button>
+        </form>
+    </div>
+
+    <!-- Footer Section (Optional) -->
+    <div class="row page-footer-row mt-4">
+        <div class="col-sm-12 text-center">
+            <p>© 2024 Network Packet Generator. All rights reserved.</p>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script>
+        // Validation script
+        function validateICMPForm() {
+            const destIp = document.getElementById("destinationIP").value;
+
+            // Regex for validating IPv4 addresses
+            const ipRegex = /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/;
+
+            if (!ipRegex.test(destIp)) {
+                alert("Invalid Destination IP Address");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</body>
+
+</html>

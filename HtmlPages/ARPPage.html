@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="http://localhost/NPG/StyleSheets/HomePageStyle.css"
+      type="text/css"
+      media="screen"
+    />
+    <script src="http://localhost/NPG/Scripts/ARPScript.js"></script>
+    <title>NPG</title>
+  </head>
+
+  <body>
+    <div>
+      <div class="row page-header-row">
+        <div class="col-sm-2">
+          <a
+            title="Click here to navigate to Welcome Page."
+            href="./WelcomePage.html"
+          >
+            <img
+              src="http://localhost/NPG/Images/PageLogoImage.png"
+              class="img-thumbnail"
+              width="80px"
+              height="60px"
+            />
+          </a>
+        </div>
+        <div class="col-sm-8 text-center page-header">
+          <!-- Content for column 2 -->
+          <b>
+            <a title="NPG" class="hd" href="./HomePage.html"
+              >NETWORK PACKET GENERATOR</a
+            >
+          </b>
+        </div>
+        <div class="col-sm-2 text-right">
+          <a
+            title="Click here to navigate to Website Information Page."
+            href="./InfoPage.html"
+            ><img
+              src="http://localhost/NPG/Images/PageInfoImage.png"
+              class="img-thumbnail"
+              width="80px"
+              height="60px"
+            />
+          </a>
+        </div>
+      </div>
+    </div>
+    <!--<div>
+        <marquee class="header-scroll" direction="right" background="#FFFFCC">One stop tool to generate network packects
+            using ARP, IP, DNS.</marquee>
+    </div>-->
+    <br />
+    <br />
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <form
+            class="row g-3"
+            name="arp-form"
+            action="http://localhost/NPG/Server/ARPPacketGenerator.py"
+            method="post"
+          >
+            <div class="col-12">
+              <label for="destinationIP" class="form-label"
+                >Destination IP</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="destinationIP"
+                name="destinationIP"
+                placeholder="192.168.1.1"
+              />
+            </div>
+            <!--<div class="col-12">
+              <label for="destinationMAC" class="form-label"
+                >Destination MAC</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="destinationMAC"
+                name="destinationMAC"
+                placeholder="00:00:00:00:00:00"
+                value="00:00:00:00:00:00"
+              />
+            </div>-->
+            <div class="col-12">
+              <label for="sourceIP" class="form-label">Source IP</label>
+              <input
+                type="text"
+                class="form-control"
+                id="sourceIP"
+                name="sourceIP"
+                placeholder="192.168.1.2"
+              />
+            </div>
+            <div class="col-12">
+              <br /><button type="submit" class="btn btn-primary">
+                generate
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="contact">
+      <button
+        class="contact-btn"
+        title="Click here to navigate to Contact Info Page."
+      >
+        <a class="pg" href="./ContactInfoPage.html">
+          <img
+            src="http://localhost/NPG/Images/contactInfoImage.png"
+            width="20px"
+            height="20px"
+          />Contact
+        </a>
+      </button>
+    </div>
+    <div class="feedback">
+      <button
+        class="feedback-btn"
+        title="Click here to navigate to Feedback Page."
+      >
+        <a class="pg" href="./FeedbackPage.html"
+          ><img
+            src="http://localhost/NPG/Images/feedbackImage.png"
+            width="20px"
+            height="20px"
+          />Feedback</a
+        >
+      </button>
+    </div>
+    <!-- Bootstrap JS and Popper.js (optional, but required for some Bootstrap components) -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script>
+      function validateARPDetails() {
+        return true;
+      }
+    </script>
+  </body>
+</html>

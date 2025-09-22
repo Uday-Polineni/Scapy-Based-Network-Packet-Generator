@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTTP GET Packet Generator</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container mt-5">
+        <h2 class="text-center">HTTP GET Packet Generator</h2>
+
+        <!-- Form for HTTP GET Packet -->
+        <form action="Server/HTTPPacketGenerator.py" method="post">
+            <div class="form-group">
+                <label for="destinationIP">Destination IP:</label>
+                <input type="text" class="form-control" id="destinationIP" name="destinationIP" placeholder="Enter target IP (e.g., 192.168.1.1)" required>
+            </div>
+            <div class="form-group">
+                <label for="httpPath">HTTP Path:</label>
+                <input type="text" class="form-control" id="httpPath" name="httpPath" placeholder="Enter the request path (e.g., /)" value="/" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Send HTTP GET Packet</button>
+        </form>
+
+        <!-- Response Display -->
+        <div id="response" class="mt-4">
+            <!-- The response from the Python script will appear here -->
+        </div>
+    </div>
+
+    <!-- Optional Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="http://localhost/NPG/StyleSheets/HomePageStyle.css"
+      type="text/css"
+      media="screen"
+    />
+    <script src="http://localhost/NPG/Scripts/IPScript.js"></script>
+    <title>IP Packet Generator</title>
+    <style>
+      body {
+        background-color: #f9f9f9;
+        font-family: Arial, sans-serif;
+      }
+
+      .header {
+        background-color: #003366;
+        color: white;
+        text-align: center;
+        padding: 30px 0;
+        margin-bottom: 30px;
+      }
+
+      .header img {
+        width: 50px;
+        height: 50px;
+        margin-bottom: 10px;
+      }
+
+      .header h1 {
+        margin: 0;
+        font-size: 1.8rem;
+        font-weight: bold;
+      }
+
+      .form-control {
+        border-radius: 0.5rem;
+      }
+
+      .btn-primary {
+        background-color: #003366;
+        border: none;
+        width: 100%;
+        padding: 10px;
+        font-size: 1rem;
+      }
+
+      .btn-primary:hover {
+        background-color: #00509e;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="header">
+      <img src="http://localhost/NPG/Images/PageLogoImage.png" alt="Logo" />
+      <h1>IP Packet Generator</h1>
+    </div>
+
+    <div class="container">
+      <form
+        class="needs-validation"
+        name="ip-form"
+        onsubmit="return validateIPDetails()"
+        action="http://localhost/NPG/Server/IPPacketGenerator.py"
+        method="post"
+        novalidate
+      >
+        <div class="form-group">
+          <label for="destinationIP">Destination IP</label>
+          <input
+            type="text"
+            class="form-control"
+            id="destinationIP"
+            name="destinationIP"
+            placeholder="Enter Destination IP"
+            required
+          />
+          <div class="invalid-feedback">
+            Please enter a valid Destination IP.
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="sourceIP">Source IP</label>
+          <input
+            type="text"
+            class="form-control"
+            id="sourceIP"
+            name="sourceIP"
+            placeholder="Enter Source IP"
+          />
+        </div>
+        <div class="form-group">
+          <label for="ttl">TimeToLive</label>
+          <input
+            type="number"
+            class="form-control"
+            id="ttl"
+            name="ttl"
+            value="0"
+          />
+        </div>
+        <!--<div class="form-check">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            id="IPOption_RR"
+            name="IPOption_RR"
+            checked
+          />
+          <label class="form-check-label" for="IPOption_RR"
+            >Enable IP Option RR</label
+          >
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            id="IPOption_TS"
+            name="IPOption_TS"
+            checked
+          />
+          <label class="form-check-label" for="IPOption_TS"
+            >Enable IP Option TS</label
+          >
+        </div>-->
+        <br />
+        <button type="submit" class="btn btn-primary">
+          Generate IP Packet
+        </button>
+      </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  </body>
+</html>

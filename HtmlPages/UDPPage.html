@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://localhost/NPG/StyleSheets/HomePageStyle.css" type="text/css" media="screen" />
+    <title>UDP Packet Generator</title>
+</head>
+
+<body>
+    <!-- Header Section -->
+    <div class="row page-header-row">
+        <div class="col-sm-2">
+            <a title="Click here to navigate to Welcome Page." href="./WelcomePage.html">
+                <img src="http://localhost/NPG/Images/PageLogoImage.png" class="img-thumbnail" width="80px" height="60px">
+            </a>
+        </div>
+        <div class="col-sm-8 text-center page-header">
+            <b>
+                <a title="NPG" class="hd" href="./HomePage.html">NETWORK PACKET GENERATOR</a>
+            </b>
+        </div>
+        <div class="col-sm-2 text-right">
+            <a title="Click here to navigate to Website Information Page." href="./InfoPage.html">
+                <img src="http://localhost/NPG/Images/PageInfoImage.png" class="img-thumbnail" width="80px" height="60px">
+            </a>
+        </div>
+    </div>
+
+    <!-- UDP Form Section -->
+    <div class="container mt-4">
+        <h2 class="text-center mb-4">UDP Packet Generator</h2>
+        <form id="udpForm" action="http://localhost/NPG/Server/UDPPacketGenerator.py" method="post" onsubmit="return validateUDPForm()">
+            <div class="form-group">
+                <label for="dest_ip">Destination IP</label>
+                <input type="text" class="form-control" id="dest_ip" name="dest_ip" placeholder="Enter Destination IP" required>
+            </div>
+            <div class="form-group">
+                <label for="dest_port">Destination Port</label>
+                <input type="number" class="form-control" id="dest_port" name="dest_port" placeholder="Enter Destination Port" required>
+            </div>
+            <div class="form-group">
+                <label for="source_ip">Source IP (Optional)</label>
+                <input type="text" class="form-control" id="source_ip" name="source_ip" placeholder="Enter Source IP (Optional)">
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Generate UDP Packet</button>
+        </form>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script>
+        // Validation script
+        function validateUDPForm() {
+            const destIp = document.getElementById("dest_ip").value;
+            const destPort = document.getElementById("dest_port").value;
+            const sourceIp = document.getElementById("source_ip").value;
+
+            // Regex for validating IPv4 addresses
+            const ipRegex = /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/;
+
+            if (!ipRegex.test(destIp)) {
+                alert("Invalid Destination IP Address");
+                return false;
+            }
+
+            if (sourceIp !== "" && !ipRegex.test(sourceIp)) {
+                alert("Invalid Source IP Address");
+                return false;
+            }
+
+            if (destPort < 1 || destPort > 65535 || isNaN(destPort)) {
+                alert("Invalid Destination Port. It must be a number between 1 and 65535.");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</body>
+
+</html>
